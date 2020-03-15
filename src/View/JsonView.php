@@ -21,11 +21,11 @@ class JsonView extends View
      * @return string|null Rendered content or null if content already rendered and returned earlier.
      * @throws Exception If there is an error in the view.
      */
-    public function render($view = null, $layout = null)
+    public function render(?string $template = null, $layout = null): string
     {
-        if ($this->hasRendered) {
-            return null;
-        }
+        // if ($this->hasRendered) {
+        //     return null;
+        // }
 
         $this->response = $this->response->withType('json');
 
@@ -45,7 +45,7 @@ class JsonView extends View
 
         $this->Blocks->set('content', $this->renderLayout(json_encode($content), $this->layout));
 
-        $this->hasRendered = true;
+        // $this->hasRendered = true;
 
         return $this->Blocks->get('content');
     }

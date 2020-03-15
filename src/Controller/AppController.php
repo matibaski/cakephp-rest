@@ -26,15 +26,15 @@ class AppController extends BaseController
      *
      * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
-        $authorization = $this->request->getAttribute('authorization');
+        // $authorization = $this->request->getAttribute('authorization');
 
-        // set token
-        $this->token = $authorization['token'];
+        // // set token
+        // $this->token = $authorization['token'];
 
-        // set payload
-        $this->payload = $authorization['payload'];
+        // // set payload
+        // $this->payload = $authorization['payload'];
 
         parent::initialize();
     }

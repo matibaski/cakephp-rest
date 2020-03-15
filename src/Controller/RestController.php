@@ -3,6 +3,7 @@
 namespace Rest\Controller;
 
 use Cake\Event\Event;
+use Cake\Event\EventInterface;
 
 class RestController extends AppController
 {
@@ -13,7 +14,7 @@ class RestController extends AppController
      * @param Event $event An Event instance
      * @return null
      */
-    public function beforeRender(Event $event)
+    public function beforeRender(EventInterface $event)
     {
         parent::beforeRender($event);
 
