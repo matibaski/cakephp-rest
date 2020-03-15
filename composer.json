@@ -1,0 +1,55 @@
+{
+    "name": "matibaski/cakephp-rest",
+    "description": "Rest API plugin for CakePHP 4",
+    "type": "cakephp-plugin",
+    "keywords": ["CakePHP", "Rest", "Api", "Rest Api", "CakePHP Rest", "CakePHP Rest Api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matija Baskarad",
+            "homepage": "https://www.matibaski.ch",
+            "role": "Author"
+        },
+        {
+            "name": "SprintCube",
+            "homepage": "https://www.sprintcube.com",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/matiaski/cakephp-rest",
+        "issues": "https://github.com/matiaski/cakephp-rest/issues"
+    },
+    "require": {
+        "php": ">=7.2.0",
+        "cakephp/cakephp": "^4.0",
+        "firebase/php-jwt": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "cakephp/cakephp-codesniffer": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rest\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rest\\Test\\": "tests",
+            "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "App\\Console\\Installer::postInstall",
+        "post-create-project-cmd": "App\\Console\\Installer::postInstall",
+        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+        "check": [
+            "@test",
+            "@cs-check"
+        ],
+        "cs-check": "phpcs --colors -p --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "cs-fix": "phpcbf --colors --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src ./tests",
+        "test": "phpunit --colors=always"
+    }
+}
